@@ -1,0 +1,37 @@
+# ===== 机密：绝对不能提交 =====
+# config.yaml 里是明文 API key，提交就等于泄露
+config.yaml
+config.*.yaml
+!config.example.yaml
+
+# ===== 个人财务数据：建议不要提交 =====
+# 账单是隐私。如果你确实想给数据做版本管理，把下面这几行删掉。
+data/
+微信支付账单流水文件*.csv
+*.xlsx
+backup-0908-10-30/
+
+# ===== 依赖 / 构建产物 =====
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# ===== 编辑器 / 系统 =====
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.claude/settings.local.json
+
+# ===== 日志 =====
+logs/
+*.log
+npm-debug.log*
