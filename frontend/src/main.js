@@ -9,9 +9,8 @@ import 'element-plus/dist/index.css'
 
 
 
-
+const pinia = createPinia()
 const app = createApp(App)
 app.use(router)
 app.use(ELementPlus)
-app.use(createPinia())
 app.mount('#app')
