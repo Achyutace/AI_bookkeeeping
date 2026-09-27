@@ -6,10 +6,10 @@ export const useEntriesStore = defineStore('entries', () => {
     const entries = ref([]);
     const loading = ref(false);
     const error_message = ref(null);
-    async function fetchEntries() {
+    async function fetchEntries(user) {
         loading.value = true;
         try {
-            const data = await getEntries();
+            const data = await getEntries(user);
             entries.value = data;
         } catch (error) {
             error_message.value = error.message;

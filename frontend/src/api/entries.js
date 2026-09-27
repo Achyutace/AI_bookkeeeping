@@ -1,6 +1,6 @@
 import { request } from './http.js'
 
-export function getEntries() {
-    return request('/entries', {'method': 'GET'})
+export function getEntries(user) {
+    return request('/entries', {'params': {'user': user}, 'method': 'GET'})
 }
 
