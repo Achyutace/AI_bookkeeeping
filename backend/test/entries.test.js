@@ -5,7 +5,7 @@ import { readEntries } from '../repository/entry.js'
 console.log(readEntries('齐乐辰'))
 describe('parseCSV', () => {
     it('should parse csv to array with dict', () => {
-        const path1 = '/Users/achyutace/Desktop/记账/backend/test/data/2026_09.csv'
+        const path1 = new URL('./data/2026_09.csv', import.meta.url)
         const result = parseCSV(path1)
         expect(result).toEqual([{
             id: '114514',

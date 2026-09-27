@@ -4,12 +4,22 @@ config.yaml
 config.*.yaml
 !config.example.yaml
 
+# 以后要是把密钥挪到 .env，这几行能兜住
+.env
+.env.*
+!.env.example
+
 # ===== 个人财务数据：建议不要提交 =====
 # 账单是隐私。如果你确实想给数据做版本管理，把下面这几行删掉。
-data/
-微信支付账单流水文件*.csv
+# 开头的 / 表示"只匹配仓库根目录"。不加 / 会连 backend/test/data/ 这种
+# 测试夹具一起忽略掉，新克隆的仓库就跑不了测试了（所以这几行都带 /）。
+# 这里写 /data/* 而不是 /data/：被整个排除掉的目录 git 不会再进去看，
+# 里面的 !/data/database.md 就失效了。先放行目录、只挡内容才开得了例外。
+/data/*
+!/data/database.md
+/微信支付账单流水文件*.csv
 *.xlsx
-backup-0908-10-30/
+/backup-*/
 
 # ===== 依赖 / 构建产物 =====
 node_modules/
